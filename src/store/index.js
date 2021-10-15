@@ -14,11 +14,6 @@ export default new Vuex.Store({
     responses: ""
   },
   mutations: {
-    //login
-    login(state) {
-      state.loginTrue = true
-      router.push("/visualizar")
-    },
 
     //get product
     async getProducts(state) {
@@ -72,6 +67,25 @@ export default new Vuex.Store({
         console.log("error" + e)
       }
     },
+    //Login
+    //login
+    async login(state, dataJson) {
+
+
+      try {
+        console.log(dataJson)
+        await axios.post(state.endPoint + "/users/login", dataJson).then((e) => {
+          state.responses = console.log(e), state.loginTrue = true,
+            router.push("/visualizar")
+        })
+      }
+      catch (e) {
+        console.log("error" + e)
+      }
+
+
+    },
+
 
 
   },

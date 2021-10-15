@@ -65,7 +65,7 @@
             <p v-if="tipos == 'crear'" class="my-10 text-4xl just">
               Crear productos
             </p>
-            <p v-else class="my-10 text-4xl just">Editar Producto</p>
+            <p v-else class="my-10 text-4xl just">Editar Descripcion</p>
             <label class="text-gray-600 font-light">Nombre Producto</label>
             <input
               type="text"
@@ -102,6 +102,9 @@
                 focus:border-green-500
               "
             />
+            <p>
+              {{ message }}
+            </p>
             <button
               @click="aggProductAux()"
               class="
@@ -196,25 +199,36 @@ export default {
         description: this.description,
         _id: this.idpost,
       };
-      if (this.titulo == "" || this.description == "") {
-        this.message = "verifique la informacion";
-      } else if (this.$props.tipo == "edit") {
-        this.edisPosts(jsonData);
-        this.message = "";
-        this.ocultarmenu("cerrar");
-        this.getProducts();
+      if (jsonData.titulo != "" && jsonData.description != "") {
+        if (
+          this.$props.tipo == "edit" &&
+          jsonData.titulo != "" &&
+          jsonData.description != ""
+        ) {
+          this.edisPosts(jsonData);
+          this.message = "";
+          this.ocultarmenu("cerrar");
+          setTimeout(() => {
+            this.array = this.arrayList;
+            this.getProducts();
+          }, 500);
+        } else {
+          this.aggProduct(jsonData);
+          this.message = "";
+          this.ocultarmenu("cerrar");
+          this.getProducts();
+          setTimeout(() => {
+            this.array = this.arrayList;
+            this.getProducts();
+          }, 500);
+        }
       } else {
-        this.aggProduct(jsonData);
-        this.message = "";
-        this.ocultarmenu("cerrar");
-        this.getProducts();
+        this.message = "Agrege los compos correctamente";
       }
     },
   },
   mounted() {
     this.tipos = this.$props.tipo;
-    console.log("tipos");
-    console.log(this.tipos);
   },
 };
 </script>

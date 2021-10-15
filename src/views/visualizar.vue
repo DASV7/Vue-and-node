@@ -30,7 +30,7 @@
           v-for="arra of array"
           class="border shadow p-5 m-5"
         >
-          <div >
+          <div>
             <img
               src="../assets/bak.jpg"
               class="rounded shadow hover:bg-gradient-to-tl"
@@ -43,14 +43,13 @@
             <p>Descripcion:{{ arra.description }}</p>
           </div>
           <div class="shadow flex p-2 w-2/3 mx-10 rounded ustify-items-center">
-            
-              <app-menu
-                :tipo="'edit'"
-                :descriptions="arra.description"
-                :title="arra.title"
-                :idposts="arra._id"
-              ></app-menu>              
-            
+            <app-menu
+              :tipo="'edit'"
+              :descriptions="arra.description"
+              :title="arra.title"
+              :idposts="arra._id"
+            ></app-menu>
+
             <button
               @click="deletePostsAux(arra._id)"
               class="
@@ -91,6 +90,7 @@ export default {
   },
   methods: {
     ...mapMutations(["getProducts", "deleteposts"]),
+    //search by title
     findPosts() {
       let aux = this.arrayList.filter((x) =>
         x["title"].includes(this.findbydata)
@@ -104,20 +104,23 @@ export default {
     },
     async load() {
       await this.getProducts();
-      this.array = this.arrayList;
+      setTimeout(() => {
+        this.array = this.arrayList;
+      }, 500);
     },
+    //delete post
     async deletePostsAux(x) {
-      this.deleteposts(x);
-      await this.getProducts();
+      await this.deleteposts(x);
+      setTimeout(() => {
+        this.getProducts();
+        this.array = this.arrayList;
+        console.log(this.array);
+      }, 500);
     },
   },
   watch: {
-    arrayList(newValue,oldValue) {
-      console.log(
-        "El nombre pasó de ser '%s' a '%s'",
-        oldValue,
-        newValue
-      );
+    arrayList(newValue, oldValue) {
+      console.log("El nombre pasó de ser '%s' a '%s'", oldValue, newValue);
       this.array = newValue;
     },
   },

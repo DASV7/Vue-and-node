@@ -89,10 +89,11 @@
               transition
               duration-200
             "
-            @click="loginLogin()"
+            @click="loginAux()"
           >
             Iniciar sesion
           </button>
+          <p>{{ mensaje }}</p>
         </div>
       </section>
       <section v-else class="mt-10">
@@ -198,15 +199,11 @@ export default {
   },
   methods: {
     ...mapMutations(["login", "registerUser"]),
-    loginLogin() {
-      if (this.user != "" || this.password != "") {
-        this.login();
-        this.mensaje = "Llene ambos campos correctamente";
-      }
-    },
+    //method login or register
     registerOrLogin(x) {
       this.loginOrRegister = x == "true" ? true : false;
     },
+    //register
     register() {
       let data = {
         user: this.user,
@@ -214,6 +211,18 @@ export default {
       };
       if (this.user != "" || this.password != "") {
         this.registerUser(data);
+      } else {
+        this.mensaje = "Llene ambos campos correctamente";
+      }
+    },
+    //login call
+    loginAux() {
+      if (this.user != "" || this.password != "") {
+        const data = {
+          user: this.user,
+          password: this.password,
+        };
+        this.login(data);
       } else {
         this.mensaje = "Llene ambos campos correctamente";
       }
