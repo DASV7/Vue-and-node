@@ -1,5 +1,9 @@
 # front_vuejs
 
+all this proyect its create with tailwind css and vue js for get apis with axios
+
+Create BY: DIego alejandro sepulveda Velez
+
 ## Project setup
 ```
 npm install

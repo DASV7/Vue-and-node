@@ -115,7 +115,7 @@ export default {
         this.getProducts();
         this.array = this.arrayList;
         console.log(this.array);
-      }, 500);
+      }, 300);
     },
   },
   watch: {

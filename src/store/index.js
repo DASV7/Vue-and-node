@@ -67,20 +67,17 @@ export default new Vuex.Store({
         console.log("error" + e)
       }
     },
-    //Login
-    //login
+    //Login    
     async login(state, dataJson) {
-
-
       try {
-        console.log(dataJson)
         await axios.post(state.endPoint + "/users/login", dataJson).then((e) => {
           state.responses = console.log(e), state.loginTrue = true,
             router.push("/visualizar")
         })
       }
       catch (e) {
-        console.log("error" + e)
+        console.log("error" + e);
+        state.responses = "Usuario O Clave incorrecto";
       }
 
 

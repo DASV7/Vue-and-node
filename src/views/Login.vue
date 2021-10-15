@@ -94,6 +94,7 @@
             Iniciar sesion
           </button>
           <p>{{ mensaje }}</p>
+          <p>{{responses}}</p>
         </div>
       </section>
       <section v-else class="mt-10">
@@ -229,7 +230,7 @@ export default {
     },
   },
   computed: {
-    ...mapState(["loginTrue"]),
+    ...mapState(["loginTrue","responses"]),
   },
 };
 </script>
