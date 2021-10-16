@@ -11,7 +11,9 @@ export default new Vuex.Store({
     //end point
     endPoint: "http://localhost:3000",
     //responses
-    responses: ""
+    responses: "",
+    //Login
+    responseLogin:""
   },
   mutations: {
 
@@ -71,8 +73,9 @@ export default new Vuex.Store({
     async login(state, dataJson) {
       try {
         await axios.post(state.endPoint + "/users/login", dataJson).then((e) => {
-          state.responses = console.log(e), state.loginTrue = true,
+          state.responseLogin = e.data.data, state.loginTrue = true,
             router.push("/visualizar")
+            console.log(e.data.data)
         })
       }
       catch (e) {

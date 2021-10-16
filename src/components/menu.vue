@@ -70,6 +70,7 @@
             <input
               type="text"
               v-model="titulo"
+              :disabled="tipos != 'crear'"
               placeholder="Ingrese el nombre aqui"
               class="
                 w-full
@@ -80,8 +81,7 @@
                 border
                 rounded-lg
                 text-gray-700
-                focus:outline-none
-                focus:border-green-500
+                focus:outline-none focus:border-green-500
               "
             />
             <label class="text-gray-600 font-light">Descripcion Producto</label>
@@ -98,8 +98,7 @@
                 border
                 rounded-lg
                 text-gray-700
-                focus:outline-none
-                focus:border-green-500
+                focus:outline-none focus:border-green-500
               "
             />
             <p>
