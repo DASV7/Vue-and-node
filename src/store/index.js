@@ -3,13 +3,14 @@ import Vuex from 'vuex'
 import axios from 'axios'
 import router from '../router'
 Vue.use(Vuex)
-
+//produccion or not    
+var productionTip = false
 export default new Vuex.Store({
   state: {
     loginTrue: false,
-    arrayList: [],
+    arrayList: [],    
     //end point
-    endPoint: "http://localhost:3000/api",
+    endPoint: productionTip ? "http://localhost:3000/api" : "https://node-prueba-diego.herokuapp.com/api",
     //responses
     responses: "",
     //Login
