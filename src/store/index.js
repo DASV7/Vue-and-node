@@ -8,7 +8,7 @@ var productionTip = false
 export default new Vuex.Store({
   state: {
     loginTrue: false,
-    arrayList: [],    
+    arrayList: [],
     //end point
     endPoint: productionTip ? "http://localhost:3000/api" : "https://node-prueba-diego.herokuapp.com/api",
     //responses
@@ -73,7 +73,7 @@ export default new Vuex.Store({
     //Login    
     async login(state, dataJson) {
       try {
-        state.responseLogin=""
+        state.responses = ""
         await axios.post(state.endPoint + "/users/login", dataJson).then((e) => {
           state.responseLogin = e.data.data, state.loginTrue = true,
             router.push("/visualizar")
@@ -82,7 +82,7 @@ export default new Vuex.Store({
       }
       catch (e) {
         console.log("error" + e);
-        
+
         state.responses = "Usuario O Clave incorrecto";
       }
 
