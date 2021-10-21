@@ -73,6 +73,7 @@ export default new Vuex.Store({
     //Login    
     async login(state, dataJson) {
       try {
+        state.responseLogin=""
         await axios.post(state.endPoint + "/users/login", dataJson).then((e) => {
           state.responseLogin = e.data.data, state.loginTrue = true,
             router.push("/visualizar")
