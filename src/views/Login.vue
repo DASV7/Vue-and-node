@@ -36,18 +36,9 @@
               type="text"
               id="user"
               class="
-                bg-blue-100
-                rounded
-                w-full
-                text-gray-700
-                focus:outline-none
-                border-b-4 border-gray-300
-                focus:border-blue-600
-                transition
-                duration-500
-                px-3
-                pb-3
-              "
+                bg-blue-100 rounded  w-full text-gray-700  focus:outline-none
+                border-b-4 border-gray-300 focus:border-blue-600 transition
+                duration-500 px-3 pb-3"
             />
           </div>
           <div class="mb-6 pt-3 rounded bg-gray-200">
@@ -57,38 +48,17 @@
               >Clave:</label
             >
             <input
-              v-model="password"
-              type="password"
+              v-model="password" type="password"
               id="password"
-              class="
-                bg-blue-100
-                rounded
-                w-full
-                text-gray-700
-                focus:outline-none
-                border-b-4 border-gray-300
-                focus:border-blue-600
-                transition
-                duration-500
-                px-3
-                pb-3
-              "
+              class="bg-blue-100 rounded w-full text-gray-700 focus:outline-none
+                border-b-4 border-gray-300 focus:border-blue-600 transition duration-500 px-3 pb-3"
             />
           </div>
 
           <button
             class="
-              bg-blue-600
-              hover:bg-blue-700
-              text-white
-              font-bold
-              py-2
-              rounded
-              shadow-lg
-              hover:shadow-xl
-              transition
-              duration-200
-            "
+              bg-blue-600  hover:bg-blue-700 text-white  font-bold
+              py-2 rounded  shadow-lg  hover:shadow-xl  transition duration-200"
             @click="loginAux()"
           >
             Iniciar sesion
@@ -110,19 +80,9 @@
               v-model="user"
               type="text"
               id="user"
-              class="
-                bg-blue-100
-                rounded
-                w-full
-                text-gray-700
-                focus:outline-none
-                border-b-4 border-gray-300
-                focus:border-blue-600
-                transition
-                duration-500
-                px-3
-                pb-3
-              "
+              class="bg-blue-100  rounded  w-full text-gray-700   focus:outline-none
+                border-b-4 border-gray-300  focus:border-blue-600  transition
+                duration-500 px-3  pb-3 "
             />
           </div>
           <div class="mb-6 pt-3 rounded bg-gray-200">
@@ -135,35 +95,14 @@
               v-model="password"
               type="password"
               id="password"
-              class="
-                bg-blue-100
-                rounded
-                w-full
-                text-gray-700
-                focus:outline-none
-                border-b-4 border-gray-300
-                focus:border-blue-600
-                transition
-                duration-500
-                px-3
-                pb-3
-              "
+              class=" bg-blue-100  rounded  w-full text-gray-700  focus:outline-none
+                border-b-4 border-gray-300  focus:border-blue-600  transition  duration-500 px-3 pb-3"
             />
           </div>
 
           <button
-            class="
-              bg-blue-600
-              hover:bg-blue-700
-              text-white
-              font-bold
-              py-2
-              rounded
-              shadow-lg
-              hover:shadow-xl
-              transition
-              duration-200
-            "
+            class=" bg-blue-600  hover:bg-blue-700 text-white  font-bold  py-2
+              rounded   shadow-lg   hover:shadow-xl   transition  duration-200 "
             @click="register()"
           >
             Crear Cuenta

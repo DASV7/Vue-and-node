@@ -15,16 +15,8 @@
       <div class="col-span-8 flex">
         <div
           class="
-            grid grid-cols-1
-            sm:grid-cols-2
-            md:grid-cols-3
-            lg:grid-cols-4
-            xl:grid-cols-5
-            w-7/9
-            border
-            p-5
-            overflow-auto
-          "
+            grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
+            xl:grid-cols-5 w-7/9  border p-5 overflow-auto"
         >
           <div
             :key="arra._id"
@@ -55,17 +47,8 @@
 
               <button
                 @click="deletePostsAux(arra._id)"
-                class="
-                  border
-                  hover:bg-red-300
-                  shadow
-                  rounded
-                  text-white
-                  font-bold
-                  bg-red-500
-                  mx-1
-                  p-1
-                "
+                class="border hover:bg-red-300 shadow roundedtext-white
+                  font-bold bg-red-500 mx-1 p-1"
               >
                 eliminar
               </button>
