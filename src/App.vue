@@ -1,7 +1,7 @@
 <template>
   <div id="fondo">
     <div v-if="loginTrue">
-      <div class="grid grid-cols-8 p-2 h-14 bg-blue-900" v-if="loginTrue">
+      <div class="grid grid-cols-3 mb:grid-cols-8 p-2 h-14 bg-blue-900" v-if="loginTrue">
         <div class="text-white p-1 whitespace-nowrap">
           <p>Prueba Tecnica</p>
         </div>
