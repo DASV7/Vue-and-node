@@ -51,10 +51,10 @@
               h-10
               border
               shadow
-              p-1
               mt-1
               rounded-full
               px-4
+              p-1
               bg-red-500
               hover:bg-red-600
             "
@@ -105,7 +105,7 @@
               {{ message }}
             </p>
             <button
-              @click="aggProductAux()"
+              @click="callMethod()"
               class="
                 bg-white
                 hover:bg-gray-100
@@ -191,6 +191,22 @@ export default {
     },
     // method agg
     ...mapMutations(["aggProduct", "getProducts", "edisPosts"]),
+    callMethod() {
+      if (this.description != "" && this.titulo != "") {
+        this.$confirm("¿Seguro que quiere crear o modificar?").then(() => {
+          this.aggProductAux();
+        });
+      } else {
+        this.$fire({
+          title: "Verifique la informacion",
+          text: "Todos los campos deben estar completos",
+          type: "warning",
+          timer: 10000,
+        }).then(() => {
+          this.mensaje = "";
+        });
+      }
+    },
     aggProductAux() {
       //json string
       const jsonData = {

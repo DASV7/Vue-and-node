@@ -4,12 +4,8 @@ import store from './store'
 import './assets/tailwind.css'
 import router from './router'
 import axios from 'axios';
-
-Vue.config.productionTip = false
-
-Vue.prototype.$hostname = Vue.config.productionTip
-  ? "apiReal"
-  : "http://localhost:3000";
+import VueSimpleAlert from "vue-simple-alert"; 
+Vue.use(VueSimpleAlert);
 
 new Vue({
   store,

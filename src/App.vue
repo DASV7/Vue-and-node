@@ -3,14 +3,17 @@
     <div v-if="loginTrue">
       <div class="grid grid-cols-8 p-2 h-14 bg-blue-900" v-if="loginTrue">
         <div class="text-white p-1 whitespace-nowrap">
-          <p>Prueba Tecnica Diego</p>
+          <p>Prueba Tecnica</p>
         </div>
         <div class="col-start-8 text-right mx-2">
-          <div class="dropdown mr-15">
-            <span class="text-white">Hola </span>
-            <span class="text-white">Diego</span>
-            <div class="dropdown-content whitespace-nowrap border">
-              <a href="/">Cerrar sesion</a>
+          <div class="dropdown mr-15 ">
+            <button class="text-white mb-1 mx-10 hover:bg-blue-500 p-1 rounded shadow bg-blue-700 flex whitespace-nowrap w-max"
+              >
+              <img :src="loginImg" class="w-7 h-7  filter invert" alt="Icon">
+              <p class="mt-2">Cuenta</p>
+            </button>
+            <div class="dropdown-content mx-10 whitespace-nowrap border">
+              <a href=".">Cerrar sesion</a>
             </div>
           </div>
         </div>
@@ -21,11 +24,14 @@
 </template>
 <script>
 import { mapState } from "vuex";
+import login from "../src/assets/login.png"
 export default {
   name: "app",
   components: {},
   data() {
-    return {};
+    return {
+      loginImg:login
+    };
   },
   computed: {
     ...mapState(["loginTrue"]),

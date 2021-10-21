@@ -94,7 +94,7 @@
             Iniciar sesion
           </button>
           <p>{{ mensaje }}</p>
-          <p>{{responses}}</p>
+          <p>{{ responses }}</p>
         </div>
       </section>
       <section v-else class="mt-10">
@@ -196,6 +196,7 @@ export default {
       show: true,
       loginOrRegister: true,
       mensaje: "",
+      msg: "Usuario O Clave incorrecto",
     };
   },
   methods: {
@@ -212,8 +213,25 @@ export default {
       };
       if (this.user != "" || this.password != "") {
         this.registerUser(data);
+        this.$fire({
+          title: "Usuario Creado ",
+          text: "Ahora puedes iniciar sesion",
+          type: "success",
+          timer: 3000,
+        }).then(() => {
+          this.loginOrRegister = true;
+          this.user = "";
+          this.password = "";
+        });
       } else {
-        this.mensaje = "Llene ambos campos correctamente";
+        this.$fire({
+          title: "Usuario Creado ",
+          text: "Ahora puedes iniciar sesion",
+          type: "warning",
+          timer: 10000,
+        }).then(() => {
+          this.mensaje = "Llene ambos campos correctamente";
+        });
       }
     },
     //login call
@@ -224,13 +242,31 @@ export default {
           password: this.password,
         };
         this.login(data);
+        setTimeout(() => {
+          if (this.responses == this.msg)
+            this.$fire({
+              title: "Verifique la informacion",
+              text: "Si tiene usuario validelo de lo contrario Registrese",
+              type: "warning",
+              timer: 10000,
+            }).then(() => {
+              this.mensaje = "";
+            });
+        }, 200);
       } else {
-        this.mensaje = "Llene ambos campos correctamente";
+        this.$fire({
+          title: "verifique la informaciòn ",
+          text: "Llene todos los campos correctamente",
+          type: "warning",
+          timer: 10000,
+        }).then(() => {
+          this.mensaje = "Llene ambos campos correctamente";
+        });
       }
     },
   },
   computed: {
-    ...mapState(["loginTrue","responses"]),
+    ...mapState(["loginTrue", "responses"]),
   },
 };
 </script>

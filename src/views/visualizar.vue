@@ -121,13 +121,20 @@ export default {
       }, 500);
     },
     //delete post
-    async deletePostsAux(x) {
-      await this.deleteposts(x);
-      setTimeout(() => {
-        this.getProducts();
-        this.array = this.arrayList;
-        console.log(this.array);
-      }, 300);
+     deletePostsAux(x) {
+      this.$fire({
+        title: "¿Esta seguro?",
+        text: "Se eliminara permanetemente",
+        type: "warning",
+        timer: 10000,
+      }).then(() => {
+         this.deleteposts(x);
+        setTimeout(() => {
+          this.getProducts();
+          this.array = this.arrayList;
+          
+        }, 200);
+      });
     },
   },
   watch: {

@@ -81,6 +81,7 @@ export default new Vuex.Store({
       }
       catch (e) {
         console.log("error" + e);
+        
         state.responses = "Usuario O Clave incorrecto";
       }
 
