@@ -2,8 +2,8 @@
   <div id="login" v-show="!loginTrue" class="Login grid grid-rows-8">
     <main class="max-w-lg mx-auto p-8 md:p-12 my-10 rounded-lg shadow-2xl">
       <section>
-        <div class="flex justify-center bg-gray-600 p-2 rounded-lg mt-2">
-          <p class="text-white">Prueba de seleccion</p>
+        <div class="flex justify-center bg-gray-300 p-2 rounded-lg mt-2">
+          <img :src="onegroup" class="w-20" alt="" />
         </div>
       </section>
       <div class="flex p-2 mx-2">
@@ -187,6 +187,7 @@
 
 <script>
 import { mapMutations, mapState } from "vuex";
+import onegroup from "../assets/oneGroup.png";
 export default {
   name: "Login",
   data() {
@@ -197,6 +198,8 @@ export default {
       loginOrRegister: true,
       mensaje: "",
       msg: "Usuario O Clave incorrecto",
+      //img
+      onegroup: onegroup,
     };
   },
   methods: {
